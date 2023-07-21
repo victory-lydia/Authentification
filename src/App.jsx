@@ -2,7 +2,7 @@ import "./App.css";
 import LoginButton from "./components/loginButton";
 import Profile from "./components/Profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SignupButton } from "./components/signupButton";
+import SignupButton from "./components/SignupButton";
 import ProtectedRoutes from "./services/ProtectedRoutes";
 
 function App() {
