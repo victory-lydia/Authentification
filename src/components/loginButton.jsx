@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -13,8 +13,22 @@ const LoginButton = () => {
     navigate("/loginButton");
   };
 
-  // window.location = () => {
-  //   navigate("/LoginBotton");
+  useEffect(() => {
+    try {
+      const isLoggedIn = localStorage.getItem("loggedin");
+      const user = JSON.parse(localStorage.getItem("user"));
+      const isUserEmpty = Object.keys(user).length === 0;
+
+      if (isLoggedIn && !isUserEmpty) {
+        navigate("/profile");
+      }
+    } catch (error) {
+      localStorage.clear();
+    }
+  }, []);
+
+  // window.location.href = () => {
+  //   navigate("/signupBotton");
   // };
 
   const handleLogin = (e) => {
